@@ -1,0 +1,14 @@
+﻿
+<h3>Doctor</h3>
+
+<form asp-action="CheckTemprature" method="post">
+    <label>your Body Temp: </label>
+    <input type="number" name="temp" />
+    <input type="submit" value="Check Temp" />
+</form>
+<br />
+<br />
+@if (ViewBag.M != null)
+{
+    <p>@ViewBag.M</p>
+}
