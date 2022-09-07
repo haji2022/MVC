@@ -6,7 +6,12 @@ namespace BasicMVC.Controllers
 {
     public class GuessingGame : Controller
     {
-        public IActionResult GuessGame()
+        public HttpContext GetHttpContext()
+        {
+            return HttpContext;
+        }
+
+        public IActionResult GuessGame(HttpContext httpContext)
         {
 
             if (String.IsNullOrEmpty(HttpContext.Session.GetString("Session")))
@@ -17,7 +22,9 @@ namespace BasicMVC.Controllers
             }
             else
             {
-                GuessModel.GuessGamenummer = int.Parse(HttpContext.Session.GetString("Session"));
+#pragma warning disable CS8604 // Possible null reference argument.
+                GuessModel.GuessGamenummer = int.Parse(httpContext.Session.GetString("Session"));
+#pragma warning restore CS8604 // Possible null reference argument.
             }
             return View();
         }

@@ -1,0 +1,41 @@
+﻿@model PeopleViewModel
+
+<form action="Search" method="post">
+      <input type="text" placeholder="Search.." name="name">
+      <button type="submit"><i class="bi bi-search"></i></button>
+</form>
+<form action="Add" method="post">
+  <div>
+  <input type="text" class=" inputtext " name="Name" value="" placeholder="Name"  style="width:auto">
+   <input type="text" class=" inputtext " name="City" value="" placeholder="City"  style="width:auto">
+   <input type="text" class=" inputtext " name="Phone" value="" placeholder="Phone"  style="width:auto">
+  <input class="btn btn-secondary " id="submit" type="submit" value="Add">   
+  </div>
+</form>
+
+
+
+
+  <table class="table">
+    <thead>
+		<tr>
+        <th>Driver</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Phone</th> 
+      </tr>  
+    </thead>
+    <tbody>
+     </tbody> 
+ 
+ </table>                  
+    
+@foreach(var person in @Model.Drivers){
+    
+      <form action="Delete" method="get">
+          <div>
+   <button type="submit" name="id" value=" "><i class="bi bi-trash">@person.Id</i></button>
+      <partial name="~/Views/Shared/_PartialPerson.cshtml" model="@person" />
+      </div>
+      </form>
+}

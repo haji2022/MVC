@@ -21,6 +21,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=About}/{id?}");
 
 app.UseSession();
 
@@ -37,6 +38,17 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "GuessingGame",
     pattern: "{controller=GuessingGame}/{action=GuessGame}/{id?}");
+
+
+app.MapControllerRoute(
+    name: "Person",
+    pattern: "{controller=Person}/{action=Person}/{Id?}");
+
+app.MapControllerRoute(
+    name: "Ajax",
+    pattern: "{controller=Ajax}/{action=Index}/{Id?}");
+
+
 
 
 app.Run();
