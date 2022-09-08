@@ -18,11 +18,11 @@ li {
     justify-content: space-between;
     padding: px;
     background-color: teal;
-    color: #fff;
+    color: red;
 }
 
 .nav-links a {
-    color: #fff;
+    color: red;
 }
 
 

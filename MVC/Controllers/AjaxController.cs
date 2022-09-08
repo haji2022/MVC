@@ -1,38 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BasicMVC.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MVC.ViewModels;
 
-namespace BasicMVC.Controllers
+
+namespace MVC.Controllers
 {
     public class AjaxController : Controller
     {
+        public AjaxController()
+        {
+           m = new();
+           m.CreatePeopleList();
+        }
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public static int _id;
-        public static PeopleViewModel p = new();
+        //public static int _id;
+        public static PeopleViewModel m;
 
 
         [HttpGet]
         public IActionResult People()
         {
-            _id = 1;
-            if (p.Drivers.Count == 0)
-            {
-                PeopleViewModel peopleViewModel = new PeopleViewModel("Yuan", "+4098 111 071", "stockholm", _id++);
-                p.Drivers
-               
-
-
-                _id = p.Drivers.Count();
-            }
-            return PartialView("AjaxPerson", p);
+            PeopleViewModel peopleViewModel = new PeopleViewModel();
+            
+            return PartialView("_AjaxPerson", m);
         }
 
 
@@ -42,25 +36,26 @@ namespace BasicMVC.Controllers
 
 
             PeopleViewModel ss = new();
-            ss.Drivers = p.Drivers.Where(item => item.Id == id).ToList();
+            ss.Drivers = m.Drivers.Where(item => item.Id == id).ToList();
 
-            return PartialView("AjaxPerson", ss);
+            return PartialView("_AjaxPerson", ss);
 
 
         }
 
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Delete(int id)
         {
 
             PeopleViewModel ss = new();
-            ss.Drivers = p.Drivers.Where(item => item.Id == (id)).ToList();
+            ss.Drivers = m.Drivers.Where(item => item.Id == (id)).ToList();
 
-            p.Drivers.Remove(ss.Drivers[0]);
+            m.Drivers.Remove(ss.Drivers[0]);
 
 
-            return PartialView("AjaxPerson", p);
+            return PartialView("_AjaxPerson", m);
+
         }
     }
 

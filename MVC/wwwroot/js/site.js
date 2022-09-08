@@ -1,23 +1,23 @@
-﻿
-
-//for ajax controller
-function showPerson() {
-
+﻿function listPeople() {
+    //alert();
     $.ajax({
         type: "GET",
-        url: "Ajax/People",
-        success: function (output) {
-            console.log(output);
-            alert('Ajax show, success');
-            document.getElementById("show").innerHTML = output;
-
+        url: "/Ajax/People",
+        dataType: "html",
+        success: function (response) {
+            $("#show").html(response);
+        },
+        failure: function (response) {
+            alert(response.responseText);
+        },
+        error: function (response) {
+            alert(response.responseText);
         }
-    })
+    });
 }
 
-
-function deletePerson() {
-    var id = document.getElementById("Id").value
+/*function Delete() {
+    var id = document.getElementById("personId").value
     $.ajax({
         type: "GET",
         url: `Ajax/Delete/${id}`,
@@ -27,18 +27,44 @@ function deletePerson() {
             document.getElementById("show").innerHTML = output;
         }
     })
-}
-
-
-function personDetails() {
-    var id = document.getElementById("Id").value;
+}*/
+function deletePerson() {
+    var value = $("#personId").val();
+    alert(value);
     $.ajax({
         type: "POST",
-        url: `Ajax/Details/${id}`,
-        success: function (output) {
-            alert(`Ajax details, success id ${id}`);
-            document.getElementById("show").innerHTML = output;
-
+        url: "/Ajax/Delete",
+        dataType: "html",
+        data: { id: value },
+        success: function (response) {
+            $("#show").html(response);
+        },
+        failure: function (response) {
+            alert(response.responseText);
+        },
+        error: function (response) {
+            alert(response.responseText);
         }
-    })
+    });
 }
+
+function personDetails() {
+    var value = $("#personId").val();
+    alert(value);
+    $.ajax({
+        type: "POST",
+        url: "/Ajax/Details",
+        dataType: "html",
+        data: { Id: value },
+        success: function (response) {
+            $("#show").html(response);
+        },
+        failure: function (response) {
+            alert(response.responseText);
+        },
+        error: function (response) {
+            alert(response.responseText);
+        }
+    });
+}
+

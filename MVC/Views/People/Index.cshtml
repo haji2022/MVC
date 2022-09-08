@@ -1,8 +1,11 @@
 ﻿@model PeopleViewModel
 
+<h1>Lista av drivers</h1>
+
 <form action="Search" method="post">
-      <input type="text" placeholder="Search.." name="name">
-      <button type="submit"><i class="bi bi-search"></i></button>
+      <label asp-for="SearchFilter"></label>
+      <input asp-for="SearchFilter" placeholder="Search.."/>
+      <button class="btn" type="submit"><i class="bi bi-search">Search</i></button>
 </form>
 <form action="Add" method="post">
   <div>

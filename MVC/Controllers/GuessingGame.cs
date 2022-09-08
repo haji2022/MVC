@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BasicMVC.Models;
+using MVC.Models;
 
 
-namespace BasicMVC.Controllers
+namespace MVC.Controllers
 {
     public class GuessingGame : Controller
     {

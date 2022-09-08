@@ -1,4 +1,4 @@
-﻿namespace BasicMVC.Models
+﻿namespace MVC.Models
 {
     public class Person
     {
