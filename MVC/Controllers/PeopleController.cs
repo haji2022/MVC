@@ -1,6 +1,7 @@
 ﻿
 
 using Microsoft.AspNetCore.Mvc;
+using MVC.Data;
 using MVC.Models;
 using MVC.ViewModels;
 
@@ -8,12 +9,18 @@ namespace MVC.Controllers
 {
     public class PeopleController : Controller
     {
+        readonly ApplicationDbContext _context;
+
+        public PeopleController(ApplicationDbContext context) //skickar in en context i en constructor
+        {
+            _context = context; //initiserar värdet
+        }
         public static PeopleViewModel staticM = new PeopleViewModel();
 
         //private static int _id = staticM.Drivers.Count();
         public IActionResult Index()
         {
-            staticM.CreatePeopleList();
+            staticM.Drivers = _context.People.ToList();          
             return View(staticM);
         }
 
@@ -25,7 +32,7 @@ namespace MVC.Controllers
             {
                 //Filter out rows
                 //PeopleViewModel m = new PeopleViewModel();
-                mo.Drivers = staticM.Drivers.Where(item => (item.Name.Contains(mo.SearchFilter) || item.City.Contains(mo.SearchFilter))).ToList();
+                mo.Drivers = staticM.Drivers.Where(item => (item.Name.Contains(mo.SearchFilter) )).ToList();
                 return View("Index",mo);
             }
 
@@ -37,20 +44,19 @@ namespace MVC.Controllers
 
 
         [HttpPost]
-
-        public IActionResult Add(PeopleViewModel m)
+        public IActionResult Add(PeopleViewModel m, int cityId)
         {
-            int _id = staticM.Drivers.Count();
+            //int _id = staticM.Drivers.Count();
             if (ModelState.IsValid)
             {
                 Person p = new Person();
                 p.Name = m.Name;
+                p.CityId = cityId;
                 p.Phone = m.Phone;
-                p.City = m.City;
-                p.Id = ++_id;
+                //p.Id = ++_id;
                 staticM.Drivers.Add(p);
-                //_Context.People.Add(mm);
-                //_Context.savechanges();
+               // _Context.People.Add(mm);
+               // _Context.savechanges();
 
             }
             return View("Index", staticM);

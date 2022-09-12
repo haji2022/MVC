@@ -7,17 +7,16 @@
 
         public string Name { get; set; }
 
-        public string City { get; set; }
-
-
         public string Phone { get; set; }
 
+        public int CityId { get; set; }
+        public City City { get; set; }
 
-        public Person(int id, string name, string city, string phone)
+        public Person(int id, string name, int cityId, string phone)
         {
             Id = id;
             Name = name;
-            City = city;
+            CityId = cityId;
             Phone = phone;
         }
 

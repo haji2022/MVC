@@ -24,11 +24,11 @@ namespace MVC.ViewModels
 
         public void CreatePeopleList()
         {
-            Person p = new Person(1, "Kalle", "131452658", "Angered");
+            Person p = new Person(1, "Kalle", 1, "131452658");
             Drivers.Add(p);
-            p = new Person(2, "Anders", "13154876", "Kållered");
+            p = new Person(2, "Anders", 1, "13154876");
             Drivers.Add(p);
-            p = new Person(3, "Ahmed", "1234568", "Frolunda");
+            p = new Person(3, "Ahmed", 1,"1234568");
             Drivers.Add(p);
         }
     }
