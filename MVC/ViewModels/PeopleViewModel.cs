@@ -13,7 +13,7 @@ namespace MVC.ViewModels
         [Required]
         public string Name { get; set; }
         [Required]
-        public string City { get; set; }
+        public City City { get; set; }
 
         [Required]
         public string Phone { get; set; }
@@ -24,11 +24,11 @@ namespace MVC.ViewModels
 
         public void CreatePeopleList()
         {
-            Person p = new Person(1, "Kalle", "131452658", "Angered");
+            Person p = new Person(1, "Kalle", 1, "Angered");
             Drivers.Add(p);
-            p = new Person(2, "Anders", "13154876", "Kållered");
+            p = new Person(2, "Anders", 1, "Kållered");
             Drivers.Add(p);
-            p = new Person(3, "Ahmed", "1234568", "Frolunda");
+            p = new Person(3, "Ahmed", 1, "Frolunda");
             Drivers.Add(p);
         }
     }

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<City>
+
+    <div class="row align-items-end" style="margin-left:1px">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>City</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var city in Model)
+                {
+                    <tr>
+                        <td> @city.Id</td>
+                        <td> @city.Name</td>
+
+                        <td> <button type="submit" name="id" value="@city.Id"><i class="bi bi-trash"></i></button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

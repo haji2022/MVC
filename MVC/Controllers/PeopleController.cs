@@ -25,7 +25,7 @@ namespace MVC.Controllers
             {
                 //Filter out rows
                 //PeopleViewModel m = new PeopleViewModel();
-                mo.Drivers = staticM.Drivers.Where(item => (item.Name.Contains(mo.SearchFilter) || item.City.Contains(mo.SearchFilter))).ToList();
+                mo.Drivers = staticM.Drivers.Where(item => (item.Name.Contains(mo.SearchFilter) || item.City.Name.Contains(mo.SearchFilter))).ToList();
                 return View("Index",mo);
             }
 
@@ -46,7 +46,7 @@ namespace MVC.Controllers
                 Person p = new Person();
                 p.Name = m.Name;
                 p.Phone = m.Phone;
-                p.City = m.City;
+                p.CityId = m.City.Id;
                 p.Id = ++_id;
                 staticM.Drivers.Add(p);
                 //_Context.People.Add(mm);
