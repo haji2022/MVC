@@ -1,4 +1,33 @@
-﻿@page
-@model MVC.Views.Language.IndexModel
-@{
-}
+﻿@model IEnumerable<Language>
+
+    <div class="row align-items-end" style="margin-left:1px">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Language</th>
+                    <th>Delete</th>
+                </tr>
+
+            </thead>
+            <tbody>
+
+                 @foreach (var language in Model)
+            {
+                <tr>
+                    <td> @language.LangId</td>
+                   
+                    <td> @language.Name</td>
+                   
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@language.LangId" class="bi bi-trash"></a>
+                    </td> 
+
+                   
+                </tr>
+
+
+            }
+            </tbody>
+        </table>
+    </div>

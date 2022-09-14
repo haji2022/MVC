@@ -18,6 +18,7 @@ namespace MVC.Data
         public DbSet<Country> Countries { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<Language> Languages { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Country>().HasData(new Country { Id = 1, Name = "Italy" });
@@ -36,9 +37,28 @@ namespace MVC.Data
             modelBuilder.Entity<Person>().HasData(new Person { Id = 2, Name = "Faire Fanny", Phone = "234567890", CityId = 1 });
             modelBuilder.Entity<Person>().HasData(new Person { Id = 3, Name = "Nicky Lauda", Phone = "345678912", CityId = 1 });
 
+            modelBuilder.Entity<Language>().HasData(new Language { LangId = 1, Name = "Arabic" });
+            modelBuilder.Entity<Language>().HasData(new Language { LangId = 2, Name = "Spanish" });
+            modelBuilder.Entity<Language>().HasData(new Language { LangId = 3, Name = "English" });
+            modelBuilder.Entity<Language>().HasData(new Language { LangId = 4, Name = "Somali" });
 
 
+            modelBuilder.Entity<Person>()
+               .HasMany(p => p.Languages)
+               .WithMany(l => l.People)
+               .UsingEntity(j => j.HasData(new { LanguagesLangId = 1, PeopleId = 1 }));
 
+
+            modelBuilder.Entity<Person>()
+                 .HasMany(p => p.Languages)
+                 .WithMany(l => l.People)
+                 .UsingEntity(j => j.HasData(new { LanguagesLangId = 1, PeopleId = 2 }));
+            modelBuilder.Entity<Person>()
+                .HasMany(p => p.Languages)
+                .WithMany(l => l.People)
+                .UsingEntity(j => j.HasData(new { LanguagesLangId = 1, PeopleId = 3 }));
+
+             // it depends how many people you have in the list
         }
     }
 }

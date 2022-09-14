@@ -13,6 +13,8 @@
 
         public string Phone { get; set; }
 
+        //public string Phone { get; set; }
+        public List<Language> Languages { get; set; }
 
         public Person(int id, string name, int cityId, string phone)
         {
