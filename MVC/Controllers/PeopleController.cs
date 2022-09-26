@@ -10,7 +10,7 @@ namespace MVC.Controllers
     {
         public static PeopleViewModel staticM = new PeopleViewModel();
 
-        //private static int _id = staticM.Drivers.Count();
+      
         public IActionResult Index()
         {
             staticM.CreatePeopleList();
@@ -23,13 +23,12 @@ namespace MVC.Controllers
         {
             if (mo.SearchFilter.Length > 0)
             {
-                //Filter out rows
-                //PeopleViewModel m = new PeopleViewModel();
+               
                 mo.Drivers = staticM.Drivers.Where(item => (item.Name.Contains(mo.SearchFilter) || item.City.Name.Contains(mo.SearchFilter))).ToList();
                 return View("Index",mo);
             }
 
-            //Just return to the list
+         
             return View("Index", staticM);
 
 
@@ -49,8 +48,7 @@ namespace MVC.Controllers
                 p.CityId = m.City.Id;
                 p.Id = ++_id;
                 staticM.Drivers.Add(p);
-                //_Context.People.Add(mm);
-                //_Context.savechanges();
+                
 
             }
             return View("Index", staticM);

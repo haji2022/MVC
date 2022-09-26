@@ -1,12 +1,14 @@
 ﻿@model IEnumerable<Country>
+<a asp-controller="Country" asp-action="AddCountry">Add Country</a>
 
 <div class="row align-items-end" style="margin-left:1px">
     <table class="table table-condensed">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Country</th> 
-                <th>&nbsp;</th>
+                <th>Country</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -14,14 +16,23 @@
 
             @foreach (var country in Model)
             {
+
                 <tr>
                     <td> @country.Id</td>
-                   
                     <td> @country.Name</td>
-                    
-                     
-                    
-                    <td> <button type="submit" name="id" value="@country.Id"><i class="bi bi-trash"></i></button></td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@country.Id">Edit</a>
+                    </td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td><a asp-action="Delete" asp-route-id="@country.Id" class="bi bi-trash"></a></td>
+                    }
+                    else
+                    {
+                        <td>&nbsp;</td>
+                    }
+
+
                 </tr>
 
 

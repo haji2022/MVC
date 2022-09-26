@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC.Models.Person>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Drivers</h2>
+
+<div>
+    <a asp-action="Create">Create New Driver</a>
+</div>
+<div class="row align-items-end" style="margin-left:1px">
+    <table class="table table-condensed">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Language</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @foreach (var person in Model)
+            {
+                <tr>
+                    <td> @person.Id</td>
+
+                    <td> @person.Name</td>
+
+                    <td>
+                        @foreach (var Language in person.Languages)
+                        {
+                            @Html.DisplayFor(modelItem => Language.Name)
+                            <a>  </a>
+
+                        }
+
+                    </td>
+                       @if (User.IsInRole("Admin"))
+    {
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@person.Id" class="bi bi-trash"></a>
+                    </td>
+    }
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@person.Id">Edit</a>
+                    </td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

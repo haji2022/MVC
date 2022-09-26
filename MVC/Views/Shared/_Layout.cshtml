@@ -35,11 +35,31 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="languages" asp-action="Index">Languages</a>                        
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="People2" asp-action="Index">People2</a>                        
+                           </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            
+                       
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">ShowAllUsers</a>  
+                        </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">ShowlUserRoles</a>  
+                        </li> 
+                         }
+                          
+                              <partial name="_LoginPartial"/>
+                        
                     </ul>
                 </div>
             </div>
         </nav>
+        
     </header>
+     
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -17,7 +17,7 @@ namespace MVC.Controllers
             return View();
         }
 
-        //public static int _id;
+    
         public static PeopleViewModel m;
 
 

@@ -1,0 +1,23 @@
+﻿@model Country
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add New Country</h1>
+
+<form asp-action="AddCountry" method="post">
+      @if (User.IsInRole("Admin"))
+    {
+   <div class="form-group">
+        <label>Insert Country</label>
+        <div class="col-sm-3">
+            <input asp-for="Name" type="text" class="form-control" placeholder="Type in country..." />
+        </div>
+    </div>
+   <input type="submit" value="Create Country" class="btn btn-secondary btn-sm" />
+    }
+</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
