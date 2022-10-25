@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Language\AddLanguage.cshtml" />
     <Content Remove="Views\Language\Index.cshtml" />
   </ItemGroup>
 
@@ -15,10 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Language\AddLanguage.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Language\Index.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Language\AddLanguage.cshtml" />
     <None Include="Views\Language\Index.cshtml" />
   </ItemGroup>
 
@@ -36,6 +39,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Language\AddLanguage.cshtml" />
   </ItemGroup>
 
 </Project>

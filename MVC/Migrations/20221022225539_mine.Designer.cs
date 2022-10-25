@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220923141618_startAgain")]
-    partial class startAgain
+    [Migration("20221022225539_mine")]
+    partial class mine
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -85,15 +85,15 @@ namespace MVC.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2a29f9ea-9fda-4265-a26c-64206a83120d",
-                            ConcurrencyStamp = "b599a936-e33e-4885-a175-d2689a72194d",
+                            Id = "da1f749a-2fd5-4224-bc03-555034c12942",
+                            ConcurrencyStamp = "20985194-c4d0-4f1b-9ebc-0e7b34cab226",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "0d813351-b533-44b2-839a-e312cde3ace9",
-                            ConcurrencyStamp = "58c4ad7d-9b8a-4efa-92b0-bdf4c523e6e4",
+                            Id = "456fbd7f-d454-478a-95d3-944f395083d9",
+                            ConcurrencyStamp = "eb73df88-9352-4ee6-aa0b-e1004c51e08f",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -190,8 +190,8 @@ namespace MVC.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "8d6d8b18-681f-4c42-8ba0-cb89e10634ae",
-                            RoleId = "2a29f9ea-9fda-4265-a26c-64206a83120d"
+                            UserId = "47b03ef7-c47e-4530-af5f-fa849df1e1b1",
+                            RoleId = "da1f749a-2fd5-4224-bc03-555034c12942"
                         });
                 });
 
@@ -294,10 +294,10 @@ namespace MVC.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8d6d8b18-681f-4c42-8ba0-cb89e10634ae",
+                            Id = "47b03ef7-c47e-4530-af5f-fa849df1e1b1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c38e01f9-7d19-492e-94e3-7aa0f914a2b4",
-                            DateOfBirth = new DateTime(2022, 9, 23, 16, 16, 17, 306, DateTimeKind.Local).AddTicks(2951),
+                            ConcurrencyStamp = "f0fae14e-7da5-4288-9eb5-9102bb309eca",
+                            DateOfBirth = new DateTime(2022, 10, 23, 0, 55, 38, 757, DateTimeKind.Local).AddTicks(5595),
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -305,9 +305,9 @@ namespace MVC.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBNlJkTh+ejp/FUtrEgQQsgF+ABZMnnk7bx42zqU0o2CoO97FFXcMU7i9DGP9uPtPQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB5lrdB+yaGW92/8Asbzo7gWt8TdMIHPvumaJflcGkp+/glk9j2pTwCzHzD5At+r3g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e71f5abb-9bc4-4969-b055-f94b3495ebfc",
+                            SecurityStamp = "accaf96f-c4f9-4d67-9604-72867626ad1f",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });

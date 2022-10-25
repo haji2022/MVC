@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MVC.Migrations
 {
-    public partial class startAgain : Migration
+    public partial class mine : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -253,14 +253,14 @@ namespace MVC.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0d813351-b533-44b2-839a-e312cde3ace9", "58c4ad7d-9b8a-4efa-92b0-bdf4c523e6e4", "User", "USER" },
-                    { "2a29f9ea-9fda-4265-a26c-64206a83120d", "b599a936-e33e-4885-a175-d2689a72194d", "Admin", "ADMIN" }
+                    { "456fbd7f-d454-478a-95d3-944f395083d9", "eb73df88-9352-4ee6-aa0b-e1004c51e08f", "User", "USER" },
+                    { "da1f749a-2fd5-4224-bc03-555034c12942", "20985194-c4d0-4f1b-9ebc-0e7b34cab226", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DateOfBirth", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "8d6d8b18-681f-4c42-8ba0-cb89e10634ae", 0, "c38e01f9-7d19-492e-94e3-7aa0f914a2b4", new DateTime(2022, 9, 23, 16, 16, 17, 306, DateTimeKind.Local).AddTicks(2951), "admin@admin.com", false, "Admin", "Adminsson", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEBNlJkTh+ejp/FUtrEgQQsgF+ABZMnnk7bx42zqU0o2CoO97FFXcMU7i9DGP9uPtPQ==", null, false, "e71f5abb-9bc4-4969-b055-f94b3495ebfc", false, "admin@admin.com" });
+                values: new object[] { "47b03ef7-c47e-4530-af5f-fa849df1e1b1", 0, "f0fae14e-7da5-4288-9eb5-9102bb309eca", new DateTime(2022, 10, 23, 0, 55, 38, 757, DateTimeKind.Local).AddTicks(5595), "admin@admin.com", false, "Admin", "Adminsson", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEB5lrdB+yaGW92/8Asbzo7gWt8TdMIHPvumaJflcGkp+/glk9j2pTwCzHzD5At+r3g==", null, false, "accaf96f-c4f9-4d67-9604-72867626ad1f", false, "admin@admin.com" });
 
             migrationBuilder.InsertData(
                 table: "Countries",
@@ -287,7 +287,7 @@ namespace MVC.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "2a29f9ea-9fda-4265-a26c-64206a83120d", "8d6d8b18-681f-4c42-8ba0-cb89e10634ae" });
+                values: new object[] { "da1f749a-2fd5-4224-bc03-555034c12942", "47b03ef7-c47e-4530-af5f-fa849df1e1b1" });
 
             migrationBuilder.InsertData(
                 table: "Cities",
